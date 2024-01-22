@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f   -print | sort| uniq -u
+sort | uniq -u
