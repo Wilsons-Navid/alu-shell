@@ -1,23 +1,17 @@
 #!/usr/bin/env bash
-#Displays hours and minutes
-#!/usr/bin/env bash
+# display time
 
-hours=0
-minutes=1
-i=1
+hour=0
 
-while ((hours <= 12)); do
-    while ((minutes <= 59)); do
-        if ((minutes == 1)); then
-            printf "Hour: %d\n" "$hours"
-        fi
-        printf "%02d\n" "$minutes"
-        ((minutes++))
-        ((i++))
-        if ((i > 70)); then
-            break 2
-        fi
-    done
-    ((hours++))
-    minutes=0
-done | head -n 70
+while [ "$hour" -le 12 ]; do
+  echo "Hour: $hour"
+  
+  minute=1
+  
+  while [ "$minute" -lt 60 ]; do
+    echo "$minute"
+    minute=$((minute + 1))
+  done
+
+  hour=$((hour + 1))
+done
