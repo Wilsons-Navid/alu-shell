@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-#Adding using the untill
 
-i=1;
+i=10
 
-until ((i <= 10))
+until ((i <1))
 do
- echo "Best School"
- ((i++))
+    echo "Best School"
+    ((i--))
 done
