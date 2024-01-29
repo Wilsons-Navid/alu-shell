@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#adding using the untill loop
 i=10
 
 until ((i <1))
