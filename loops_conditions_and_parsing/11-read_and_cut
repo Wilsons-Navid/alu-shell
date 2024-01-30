@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#list etc/passwd
+
+J="/etc/passwd"
+
+while IFS= read -r line; do
+  echo "$line" | cut -d ':' -f1,3,6
+done < "$J"
