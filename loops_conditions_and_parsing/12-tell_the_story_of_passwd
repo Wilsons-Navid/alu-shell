@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-#comments
+#comment
 
-#!/bin/bash
 
-IFS=':'
-exec 3< /etc/passwd
+file="/etc/passwd"
 
-while read -r username _ uid gid _ home shell; do
-  user_info=$(grep "^$username:" /etc/passwd)
-  passcode=$(echo "$user_info" | cut -d ':' -f2)
-  info=$(echo "$user_info" | cut -d ':' -f5)
+while IFS= read -r line; do
+  user=$(echo "$line" | cut -d ':' -f1)
+  gid=$(echo "$line" | cut -d ':' -f4)
+  dir=$(echo "$line" | cut -d ':' -f6)
+  shell=$(echo "$line" | cut -d ':' -f7)
+  uid=$(echo "$line" | cut -d ':' -f3)
+  pass=$(echo "$line" | cut -d ':' -f2)
+  info=$(echo "$line" | cut -d ':' -f5)
 
-  echo "The user $username is part of the $gid gang, lives in $home and rides $shell. User ID's place is protected by the passcode $passcode, more info about the user here: $info"
-done <&3
-
-exec 3<&-
+  echo "The user $user is part of the $gid gang, lives in $dir and rides $shell. $uid's place is protected by the passcode $pass, more info about the user here: $info"
+done < "$file"
