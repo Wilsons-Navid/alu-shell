@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Terminate
+while true;
+do 
+echo "To infinity and beyond"
+sleep 2
+if (pkill -15);then 
+	echo 'I am invincible!!!'
+fi
+done
