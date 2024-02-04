@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 #Terminate
+
+trap "echo 'I am invincible!!!';exit" SIGTERM
 while true;
 do 
 echo "To infinity and beyond"
 sleep 2
-if (pkill -15);then 
-	echo 'I am invincible!!!'
-fi
 done
